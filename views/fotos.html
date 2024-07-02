@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografías</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .galeria {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #imagenes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        #imagenes img {
+            max-width: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #imagenes img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="galeria">
+        <h2>Fotografías Subidas</h2>
+        <div id="imagenes">
+            <% images.forEach(function(image) { %>
+                <img src="/uploads/<%= image.filename %>" alt="Imagen subida">
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
